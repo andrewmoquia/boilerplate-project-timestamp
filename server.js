@@ -24,7 +24,13 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-
+app.get("/api/:date", (req, res) => {
+  const { date } = req.params;
+  const formatDate = new Date(Number(date)).toGMTString();
+  formatDate === "Invalid Date"
+  ? res.json({error: "Invalid Date"})
+  : res.json({unix: date, utc: formatDate });
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
