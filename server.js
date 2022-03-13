@@ -29,7 +29,7 @@ app.get("/api/:date", (req, res) => {
   const formatDate = new Date(Number(date)).toGMTString();
   formatDate === "Invalid Date"
   ? res.json({error: "Invalid Date"})
-  : res.json({unix: date, utc: formatDate });
+  : res.json({unix: Number(date), utc: formatDate });
 });
 
 // listen for requests :)
