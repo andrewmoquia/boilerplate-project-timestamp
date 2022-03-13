@@ -28,7 +28,7 @@ app.get("/api", function (req, res) {
 app.get("/api/:date", (req, res) => {
   const { date } = req.params;
 
-  const regex = new RegExp('-');
+    const regex = new RegExp('[,-\\s]');
 
   if(regex.test(date)) {
     
